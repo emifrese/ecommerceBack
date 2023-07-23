@@ -4,7 +4,21 @@ const app = express();
 const mercadopago = require("mercadopago");
 
 app.use(express.json());
-app.use(cors());
+
+const allowDomains = [process.env.FRONTEND_URL];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowDomains.indexOf(origin) !== -1) {
+      //El origen del request esta permitido
+      callback(null, true);
+    } else {
+      callback(new Error("No permitido por CORS"));
+    }
+  },
+};
+
+app.use(cors(corsOptions));
 
 mercadopago.configure({
   // access_token: "TEST-6542795390100724-072316-855ebe1badc867c81d6a09fad25912be-130460434",
