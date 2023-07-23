@@ -42,8 +42,8 @@ app.post("/create_preference", (req, res) => {
       },
     ],
     back_urls: {
-      success: "http://localhost:5173",
-      failure: "http://localhost:5173",
+      success: process.env.FRONTEND_URL,
+      failure: process.env.FRONTEND_URL,
       pending: "",
     },
     auto_return: "approved",
