@@ -5,7 +5,7 @@ const mercadopago = require("mercadopago");
 
 app.use(express.json());
 
-const allowDomains = [process.env.EXTERNAL_URL];
+const allowDomains = [process.env.FRONTEND_URL];
 
 const corsOptions = {
   origin: function (origin, callback) {
