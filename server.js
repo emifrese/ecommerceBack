@@ -9,7 +9,7 @@ const allowDomains = [process.env.FRONTEND_URL];
 
 const corsOptions = {
   origin: function (origin, callback) {
-    if (allowDomains.indexOf(origin) !== -1) {
+    if (allowDomains.includes(origin) !== -1) {
       //El origen del request esta permitido
       callback(null, true);
     } else {
@@ -18,6 +18,7 @@ const corsOptions = {
   },
 };
 
+app.use(cors(corsOptions));
 app.use(cors(corsOptions));
 
 mercadopago.configure({
