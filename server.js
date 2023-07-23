@@ -1,5 +1,5 @@
-import express from "express";
-import cors from "cors";
+const express = requier("express");
+const cors = require("cors");
 const app = express();
 const mercadopago = require("mercadopago");
 
@@ -56,7 +56,7 @@ app.post("/create_preference", (req, res) => {
     });
 });
 
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
   console.log(`Servidor funcionando en el puerto ${PORT}`);
